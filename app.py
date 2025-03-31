@@ -14,7 +14,7 @@ def serve_static(filename):
 
 @app.route('/contact.py', methods=['POST'])
 def contact():
-    # contact.pyを実行
+    # contact.pyを実行1
     process = subprocess.Popen(['python', 'contact.py'],
                            stdin=request.stream,
                            stdout=subprocess.PIPE,
