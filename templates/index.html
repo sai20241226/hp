@@ -11,7 +11,7 @@
         <h1>会社名</h1>
         <nav>
             <ul>
-                <li><a href="#about">会社紹介1</a></li>
+                <li><a href="#about">会社紹介</a></li>
                 <li><a href="#solutions">ソリューション</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
             </ul>
@@ -42,7 +42,7 @@
 
         <section id="contact">
             <h2>お問い合わせ</h2>
-            <form id="contact-form" action="contact.py" method="post">
+            <form id="contact-form" action="/contact" method="post">
                 <label for="name">氏名:</label>
                 <input type="text" id="name" name="name" required><br><br>
 
@@ -65,14 +65,13 @@
         const form = document.getElementById('contact-form');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            fetch('contact.py', {
+            fetch('/contact', {
                 method: 'POST',
                 body: new FormData(form)
             })
             .then(response => response.text())
             .then(data => {
                 document.getElementById('response').innerHTML = data;
-                form.reset();
             });
         });
     </script>
